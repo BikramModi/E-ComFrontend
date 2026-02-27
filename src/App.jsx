@@ -131,7 +131,7 @@ function App() {
           const res = await api.get("/auth/me", { withCredentials: true });
           setUser(res.data.user); // backend should return { user: {...} }
 
-console.log("Fetched user for protected route:", res.data.user);
+          console.log("Fetched user for protected route:", res.data.user);
 
         } catch (err) {
           console.error("Protected route auth failed", err);
@@ -256,6 +256,27 @@ console.log("Fetched user for protected route:", res.data.user);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+          <Route path="/payment/esewa/success" element={<EsewaPaymentSuccess />} />
+          <Route path="/payment/esewa/failure" element={<EsewaPaymentFailed />} />
+          <Route path="/khalti-payment-success" element={<KhaltiPaymentSuccess />} />
+
+
+
+
+
+
           <Route element={<ProtectedRoute1 />}>
 
             <Route path="/about" element={<AboutUsPage />} />
@@ -278,11 +299,10 @@ console.log("Fetched user for protected route:", res.data.user);
             <Route path="/pay-order" element={<PayOrderPage />} />
             <Route path="/pay-stripe/:id/:amount" element={<CheckoutPagePay />} />
             <Route path="/pay-esewa/:id/:amount" element={<EsewaCheckoutPage />} />
-            <Route path="/esewa-payment-success" element={<EsewaPaymentSuccess />} />
-            <Route path="/esewa-payment-failed" element={<EsewaPaymentFailed />} />
+
 
             <Route path="/pay-khalti/:id/:amount" element={<KhaltiPaymentPage />} />
-            <Route path="/khalti-payment-success" element={<KhaltiPaymentSuccess />} />
+
 
             <Route path="/pay-cod/:id/:amount" element={<CodPaymentPage />} />
 
